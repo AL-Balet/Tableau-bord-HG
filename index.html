@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mon tableau de bord HG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260828-193">
+  <script src="app.js?v=20260828-196" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <nav class="tool-nav" aria-label="Outils">
+        <a class="is-active-tool" href="#homeCard" aria-current="page" aria-label="Accueil" title="Accueil">
+          <span class="nav-icon nav-icon-home" aria-hidden="true"></span>
+          <span class="nav-label">Accueil</span>
+        </a>
+        <a href="#dateBanner" aria-label="Date et calendrier" title="Date et calendrier">
+          <span class="nav-icon nav-icon-calendar" aria-hidden="true"><img src="assets/icons/calendar-noun-project-8349285.png" alt=""></span>
+          <span class="nav-label">Date</span>
+        </a>
+        <a href="#timerCard" aria-label="Minuteur" title="Minuteur">
+          <span class="nav-icon nav-icon-timer" aria-hidden="true"><img src="assets/icons/timer-noun-project-8395453.png" alt=""></span>
+          <span class="nav-label">Minuteur</span>
+        </a>
+        <a href="#mapCard" aria-label="Cartes" title="Cartes">
+          <span class="nav-icon nav-icon-map" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m2 5.5 6.5-3.5 7 3.5L22 2v16.5l-6.5 3.5-7-3.5L2 22Z"></path><path d="M8.5 2v16.5M15.5 5.5v16.5"></path></svg></span>
+          <span class="nav-label">Cartes</span>
+        </a>
+        <a href="#osmCard" aria-label="OpenStreetMap" title="OpenStreetMap">
+          <span class="nav-icon nav-icon-osm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.3"></circle></svg></span>
+          <span class="nav-label">OSM</span>
+        </a>
+        <a href="#timelineCard" aria-label="Frises" title="Frises">
+          <span class="nav-icon nav-icon-timeline" aria-hidden="true"></span>
+          <span class="nav-label">Frises</span>
+        </a>
+        <a href="#instructionsCard" aria-label="Consignes" title="Consignes">
+          <span class="nav-icon nav-icon-instructions" aria-hidden="true"><img src="assets/icons/directions-noun-project-8416471.png" alt=""></span>
+          <span class="nav-label">Consignes</span>
+        </a>
+        <a href="#proofreadingCard" aria-label="Relecture" title="Relecture">
+          <span class="nav-icon nav-icon-proofreading" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 20 1.7-5.7L16.3 3.7a2.1 2.1 0 0 1 3 3L8.7 17.3Z"></path><path d="m14.8 5.2 4 4"></path><path d="M4 20h5.2"></path></svg></span>
+          <span class="nav-label">Relecture</span>
+        </a>
+        <a href="#correctionTagsCard" aria-label="Balises" title="Balises">
+          <span class="nav-icon nav-icon-tags" aria-hidden="true"><img src="assets/icons/hashtag-noun-project-8252420.png" alt=""></span>
+          <span class="nav-label">Balises</span>
+        </a>
+        <a href="#groupsCard" aria-label="Groupes" title="Groupes">
+          <span class="nav-icon nav-icon-groups" aria-hidden="true"><img src="assets/icons/puzzle-noun-project-8296112.png" alt=""></span>
+          <span class="nav-label">Groupes</span>
+        </a>
+        <a href="#helpCard" aria-label="Aide" title="Aide">
+          <span class="nav-icon nav-icon-help" aria-hidden="true"><img src="assets/icons/hand-raised-noun-project-6863789.png" alt=""></span>
+          <span class="nav-label">Aide</span>
+        </a>
+        <button id="langToggle" type="button" aria-label="Passer en anglais" title="Passer en anglais">FR</button>
+        <button id="themeToggle" type="button" aria-label="Changer de theme" title="Changer de theme">◐</button>
+      </nav>
+      <div class="title-block">
+        <p class="kicker" id="appKicker"><img class="home-brand-icon" src="assets/branding/la-classe-dhistoire.png" alt=""><span id="appKickerLabel">Tableau de bord HG</span></p>
+        <h1>Mon tableau de bord HG <span class="beta-badge">BETA</span></h1>
+        <p class="subtitle">Retrouvez vos outils de classe en un seul endroit.</p>
+      </div>
+      <section class="date-banner is-active-tool" id="dateBanner" aria-label="Date et calendrier">
+        <div class="date-now" aria-live="polite">
+          <span id="weekdayLabel">Aujourd'hui</span>
+          <strong id="dateLabel"></strong>
+          <small id="clockLabel"></small>
+          <div class="week-strip" id="weekStrip" aria-label="Jours de la semaine"></div>
+        </div>
+        <div class="mini-calendar" id="miniCalendar" aria-label="Calendrier">
+          <div class="calendar-head">
+            <button class="calendar-nav-button" id="calendarPrev" type="button" aria-label="Mois précédent" title="Mois précédent">‹</button>
+            <strong id="calendarMonthLabel"></strong>
+            <button class="calendar-nav-button" id="calendarNext" type="button" aria-label="Mois suivant" title="Mois suivant">›</button>
+          </div>
+          <div class="calendar-grid" id="calendarGrid" aria-label="Calendrier du mois"></div>
+        </div>
+      </section>
+    </header>
+
+    <main class="dashboard">
+      <section class="tool-card home-card is-active-tool" id="homeCard" aria-labelledby="homeTitle">
+        <div class="home-intro">
+          <h2 id="homeTitle">Mes outils</h2>
+          <p id="homeIntro">Ouvrez rapidement l'outil dont vous avez besoin.</p>
+        </div>
+        <div class="home-tools-grid" id="homeToolsGrid" aria-label="Outils disponibles"></div>
+
+        <section class="home-shortcuts" aria-labelledby="shortcutsTitle">
+          <div class="home-section-heading">
+            <div>
+              <h2 id="shortcutsTitle">Mes raccourcis</h2>
+              <p id="shortcutsIntro">Ajoutez vos sites et ressources habituels.</p>
+            </div>
+          </div>
+          <form class="shortcut-form" id="shortcutForm">
+            <label>
+              <span id="shortcutNameLabel">Nom du raccourci</span>
+              <input id="shortcutName" type="text" maxlength="80" required autocomplete="off">
+            </label>
+            <label>
+              <span id="shortcutUrlLabel">Adresse URL</span>
+              <input id="shortcutUrl" type="url" placeholder="https://..." required inputmode="url" autocomplete="url">
+            </label>
+            <button class="primary-button" id="shortcutAdd" type="submit">Ajouter</button>
+          </form>
+          <div class="shortcut-list" id="shortcutList" aria-live="polite"></div>
+        </section>
+
+        <section class="home-backup" aria-labelledby="backupTitle">
+          <div class="home-section-heading">
+            <div>
+              <h2 id="backupTitle">Sauvegarde</h2>
+              <p id="backupIntro">Conservez vos données pour les retrouver sur un autre navigateur.</p>
+            </div>
+          </div>
+          <div class="backup-actions">
+            <button id="exportData" type="button">Exporter</button>
+            <button id="importData" type="button">Importer</button>
+            <input id="importDataFile" type="file" accept="application/json,.json" hidden>
+          </div>
+        </section>
+      </section>
+
+      <section class="tool-card timer-card" id="timerCard" data-mode="work" aria-labelledby="timerTitle" hidden>
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Seance</p>
+            <h2 id="timerTitle">Minuteur</h2>
+          </div>
+        </div>
+
+        <div class="pomodoro-modes" aria-label="Mode du Pomodoro">
+          <button class="is-active" type="button" data-mode="work">Travail</button>
+          <button type="button" data-mode="short">Pause</button>
+        </div>
+
+        <div class="pomodoro-face" id="timerFace" style="--progress: 100%">
+          <div class="pomodoro-orbit" aria-hidden="true"></div>
+          <div class="pomodoro-core">
+            <span class="pomodoro-label" id="timerModeLabel">Travail</span>
+            <strong id="timerDisplay">10:00</strong>
+            <small id="timerPercent">100% restant</small>
+          </div>
+        </div>
+
+        <div class="timer-status" id="timerStatus" aria-live="polite">Pret pour une session de travail.</div>
+
+        <div class="pomodoro-rounds" id="roundDots" aria-label="Progression des cycles"></div>
+
+        <div class="pomodoro-settings" aria-label="Reglages Pomodoro">
+          <label>
+            <span>Duree</span>
+            <input id="durationMinutesInput" type="number" min="1" max="90" value="10">
+          </label>
+          <label>
+            <span>Sonnerie</span>
+            <select id="timerSoundSelect">
+              <option value="bell">Bell</option>
+              <option value="gameOver">Game Over</option>
+              <option value="buzzer">Buzzer</option>
+              <option value="stop">Stop</option>
+              <option value="disappointed">Disappointed</option>
+              <option value="backToWork">Back to work</option>
+              <option value="odeToJoy">Ode to joy</option>
+            </select>
+          </label>
+          <button id="testTimerSound" type="button">Tester</button>
+        </div>
+
+        <div class="action-row">
+          <button class="primary-button" id="startTimer" type="button">Demarrer</button>
+          <button id="pauseTimer" type="button">Pause</button>
+          <button id="skipTimer" type="button">Suivant</button>
+          <button id="resetTimer" type="button">Reset</button>
+        </div>
+      </section>
+
+      <section class="tool-card map-card" id="mapCard" aria-labelledby="mapTitle" hidden>
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Localiser</p>
+            <h2 id="mapTitle">Cartes</h2>
+          </div>
+          <div class="map-actions">
+            <button class="icon-button" id="mapFullscreen" type="button" aria-label="Agrandir la carte" title="Agrandir">⛶</button>
+            <button class="icon-button" id="mapZoomOut" type="button" aria-label="Dézoomer la carte" title="Dézoomer">−</button>
+            <button class="icon-button" id="mapZoomReset" type="button" aria-label="Réinitialiser le zoom" title="Réinitialiser">1:1</button>
+            <button class="icon-button" id="mapZoomIn" type="button" aria-label="Zoomer la carte" title="Zoomer">+</button>
+          </div>
+        </div>
+
+        <div class="map-toolbar">
+          <label>
+            <span>Carte thematique</span>
+            <select id="thematicMapSelect" aria-label="Choisir une carte thematique">
+              <option value="">Choisir...</option>
+              <optgroup label="Monde">
+                <option value="world-reliefs-thematic" selected>Monde | Reliefs</option>
+                <option value="world-oceans-thematic">Monde | Océans</option>
+                <option value="world-political-equal-earth">Monde | Politique (Equal Earth)</option>
+                <option value="world-political-equal-earth-asia">Monde | Politique (Equal Earth Asia)</option>
+                <option value="world-political-equal-earth-americas">Monde | Politique (Equal Earth America)</option>
+              </optgroup>
+              <optgroup label="Regions">
+                <option value="eu-capitals-thematic">Europe | Capitales des pays de l'UE</option>
+                <option value="france-outre-mer-thematic">France | Outre-mer</option>
+                <option value="france-regions-departments-thematic">France | Régions et départements</option>
+                <option value="france-relief-thematic">France | Relief</option>
+              </optgroup>
+            </select>
+          </label>
+          <label>
+            <span>Fonds de cartes</span>
+            <select id="baseMapSelect" aria-label="Choisir un fond de carte vierge">
+              <option value="">Choisir...</option>
+              <optgroup label="Monde">
+                <option value="world-blank-equal-earth-graticule">Planisphere vierge Equal Earth</option>
+                <option value="world-blank-bertin-1953-graticule">Planisphere vierge Bertin 1953</option>
+                <option value="world-blank-mollweide-interrupted-hemispheres-graticule">Mollweide interrompue 2 hemispheres</option>
+              </optgroup>
+              <optgroup label="Regions">
+                <option value="africa-blank-natural-earth-graticule">Afrique vierge Natural Earth</option>
+                <option value="asia-blank-natural-earth-graticule">Asie vierge Natural Earth</option>
+                <option value="europe-blank-equal-earth-graticule">Europe vierge Equal Earth</option>
+                <option value="france-blank-mercator-graticule">France hexagonale Equal Earth</option>
+                <option value="united-states-blank-hatier-2018">États-Unis</option>
+                <option value="china-blank-hatier-2020">Chine</option>
+                <option value="united-kingdom-blank-hatier-2024">Royaume-Uni</option>
+              </optgroup>
+            </select>
+          </label>
+        </div>
+
+        <div class="map-stage" id="mapStage">
+          <img id="mapImage" src="assets/maps/world-reliefs-thematic.png" alt="Carte thematique du monde montrant les grands reliefs">
+        </div>
+        <button class="icon-button map-exit-fullscreen" id="mapExitFullscreen" type="button" aria-label="Quitter le plein écran de la carte" title="Quitter le plein écran">×</button>
+        <p class="map-caption" id="mapCaption">Fond de carte mondial pour reperes physiques, oceans et grands ensembles.</p>
+        <p class="map-source" id="mapSource" hidden></p>
+      </section>
+
+      <section class="tool-card osm-card" id="osmCard" aria-labelledby="osmTitle" hidden>
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Explorer</p>
+            <h2 id="osmTitle">OpenStreetMap</h2>
+          </div>
+        </div>
+
+        <div class="osm-panel" aria-label="Recherche OpenStreetMap">
+          <div class="osm-provider-switch" role="group" aria-label="Service cartographique">
+            <button class="is-active" id="osmProviderOsm" type="button" aria-pressed="true">OpenStreetMap</button>
+            <button id="osmProviderCartesGouv" type="button" aria-pressed="false">Cartes.gouv.fr</button>
+            <button id="osmProviderHistory" type="button" aria-pressed="false">Remonter le temps</button>
+            <button class="icon-button" id="osmResize" type="button" aria-label="Mettre OpenStreetMap en plein écran" title="Plein écran">⛶</button>
+          </div>
+          <form class="osm-search" id="osmSearchForm">
+            <label>
+              <span>Lieu</span>
+              <input id="osmQuery" type="search" placeholder="Kyoto, Dakar, détroit de Malacca...">
+            </label>
+            <label>
+              <span>Couche</span>
+              <select id="osmLayer">
+                <option value="standard">Standard</option>
+                <option value="transport">Transport</option>
+                <option value="topo">Topo</option>
+              </select>
+            </label>
+            <button class="primary-button" type="submit">Chercher</button>
+          </form>
+          <div class="cartesgouv-controls" id="cartesGouvControls">
+            <label>
+              <span>Couche</span>
+              <select id="cartesGouvLayer">
+                <option value="plan">Plan IGN</option>
+                <option value="aerial">Photographies aériennes</option>
+                <option value="aerial1965">Photographies aériennes 1965-1980</option>
+                <option value="aerial1950">Photographies aériennes 1950-1965</option>
+                <option value="topo">Carte topographique</option>
+                <option value="cadastre">Cadastre</option>
+                <option value="etatMajor">Carte de l'État-major 1820-1866</option>
+                <option value="cassini">Carte de Cassini</option>
+              </select>
+            </label>
+          </div>
+          <div class="osm-map-wrap">
+            <button class="icon-button osm-exit-fullscreen" id="osmExitFullscreen" type="button" aria-label="Quitter le plein écran OpenStreetMap" title="Quitter le plein écran">×</button>
+            <iframe
+              id="osmFrame"
+              title="Carte OpenStreetMap"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-2.20%2C48.70%2C2.80%2C49.10&amp;layer=mapnik&amp;marker=48.8566%2C2.3522"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="osm-map-legend">
+            <div class="osm-result" id="osmResult">Carte centree sur Paris. Lancez une recherche pour changer de lieu.</div>
+            <a class="osm-external-link" id="osmOpenCartesGouv" href="https://cartes.gouv.fr/explorer-les-cartes/" target="_blank" rel="noopener" hidden>Ouvrir Cartes.gouv.fr</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-card groups-card" id="groupsCard" aria-labelledby="groupsTitle" hidden>
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Travailler ensemble</p>
+            <h2 id="groupsTitle">Groupes</h2>
+          </div>
+          <div class="map-actions">
+            <button id="openNamesModal" type="button">Noms</button>
+            <button id="shuffleStudentNames" type="button">Melanger</button>
+            <button class="icon-button" id="groupsResize" type="button" aria-label="Agrandir la liste des groupes" title="Agrandir">⛶</button>
+            <button class="icon-button" id="copyGroups" type="button" aria-label="Copier les groupes" title="Copier">⧉</button>
+          </div>
+        </div>
+
+        <div class="groups-tabs" aria-label="Mode de l'outil Groupes">
+          <button class="is-active" id="groupsModeGroups" type="button" data-groups-view="groups">Faire des groupes</button>
+          <button id="groupsModeWheel" type="button" data-groups-view="wheel">Tirer au sort</button>
+        </div>
+
+        <div class="groups-view is-active" id="groupsGeneratorView">
+          <div class="group-options">
+            <label>
+              <span>Taille</span>
+              <input id="groupSize" type="number" min="2" max="8" value="4">
+            </label>
+            <label>
+              <span>Mode</span>
+              <select id="groupMode">
+                <option value="size">Groupes de N</option>
+                <option value="count">N groupes</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="action-row">
+            <button class="primary-button" id="generateGroups" type="button">Generer</button>
+            <button id="shuffleNames" type="button">Melanger</button>
+          </div>
+
+          <div class="group-output" id="groupOutput" aria-live="polite"></div>
+        </div>
+
+        <div class="groups-view wheel-view" id="groupsWheelView" hidden>
+          <div class="wheel-panel">
+            <div class="wheel-wrap">
+              <div class="wheel-pointer" aria-hidden="true"></div>
+              <div class="student-wheel" id="studentWheel" aria-label="Roue de tirage au sort">
+                <span id="wheelCenterText">?</span>
+              </div>
+            </div>
+            <div class="wheel-controls">
+              <div class="wheel-action-row">
+                <button class="primary-button" id="spinWheel" type="button">Lancer la roue</button>
+                <button id="resetWheel" type="button">Réinitialiser</button>
+              </div>
+              <p class="wheel-winner" id="wheelWinner" aria-live="polite">Ajoutez des élèves puis lancez la roue.</p>
+              <p class="wheel-pool" id="wheelPoolStatus">0 nom dans la roue.</p>
+              <p class="wheel-history" id="wheelHistory" hidden></p>
+            </div>
+          </div>
+        </div>
+
+        <dialog class="names-dialog" id="namesDialog" aria-labelledby="namesDialogTitle">
+          <form method="dialog" class="names-dialog-panel">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">Liste de classe</p>
+                <h3 id="namesDialogTitle">Noms</h3>
+              </div>
+              <button class="icon-button" id="closeNamesModal" type="button" aria-label="Fermer la fenêtre des noms" title="Fermer">×</button>
+            </div>
+            <label class="names-field">
+              <span>Eleves</span>
+              <textarea id="studentNames" rows="12" spellcheck="false" placeholder="Un nom par ligne"></textarea>
+            </label>
+            <p class="names-help">Un nom par ligne. Vous pouvez coller une liste complète.</p>
+            <div class="action-row">
+              <button class="primary-button" id="saveNamesModal" type="button">Enregistrer</button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+
+      <section class="tool-card help-card" id="helpCard" aria-label="Aide" hidden>
+        <div class="help-board" aria-label="Tableau d'entraide">
+          <section class="help-column help-column-needs" aria-labelledby="helpNeedsTitle">
+            <h2 id="helpNeedsTitle">J'ai besoin d'aide</h2>
+            <details class="help-guidance-panel">
+              <summary id="helpNeedsGuidanceSummary">Conseils</summary>
+              <div class="help-guidance" id="helpNeedsGuidance">
+                <p>Avant de demander de l'aide :</p>
+              </div>
+            </details>
+            <form class="help-add-form" id="helpNeedForm">
+              <input id="helpNeedInput" type="text" maxlength="80" autocomplete="off" placeholder="Prénom ou besoin" aria-label="Ajouter un élève ou un besoin">
+              <button class="primary-button" type="submit">Ajouter</button>
+            </form>
+            <ul class="help-list" id="helpNeedsList" aria-live="polite"></ul>
+          </section>
+
+          <section class="help-column help-column-offers" aria-labelledby="helpOffersTitle">
+            <h2 id="helpOffersTitle">Je peux aider</h2>
+            <details class="help-guidance-panel">
+              <summary id="helpOffersGuidanceSummary">Conseils</summary>
+              <div class="help-guidance" id="helpOffersGuidance">
+                <p>Pour bien aider :</p>
+              </div>
+            </details>
+            <form class="help-add-form" id="helpOfferForm">
+              <input id="helpOfferInput" type="text" maxlength="80" autocomplete="off" placeholder="Prénom ou domaine d'aide" aria-label="Ajouter un élève ou une aide proposée">
+              <button class="primary-button" type="submit">Ajouter</button>
+            </form>
+            <ul class="help-list" id="helpOffersList" aria-live="polite"></ul>
+          </section>
+        </div>
+      </section>
+
+      <section class="tool-card instructions-card" id="instructionsCard" aria-labelledby="instructionsTitle" hidden>
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Comprendre la consigne</p>
+            <h2 id="instructionsTitle">Consignes</h2>
+          </div>
+          <button class="icon-button" id="instructionsResize" type="button" aria-label="Agrandir les consignes" title="Agrandir">⛶</button>
+        </div>
+
+        <div class="instruction-wall" id="instructionWall"></div>
+
+        <article class="instruction-display" id="instructionDisplay" aria-live="polite"></article>
+        <p class="instruction-source">Source : À partir du programme de cycle 3, 2026 | Eduscol · Affiches : La Classe d'Histoire</p>
+      </section>
+
+      <section class="tool-card correction-tags-card" id="correctionTagsCard" aria-labelledby="correctionTagsTitle" hidden>
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Corriger une production</p>
+            <h2 id="correctionTagsTitle">Balises de correction</h2>
+          </div>
+          <button id="openCorrectionTagsFilter" type="button">Choisir les balises</button>
+          <button class="icon-button" id="correctionTagsResize" type="button" aria-label="Agrandir les balises" title="Agrandir">⛶</button>
+        </div>
+        <div class="correction-tags-list" id="correctionTagsList" aria-live="polite"></div>
+
+        <dialog class="names-dialog correction-tags-dialog" id="correctionTagsDialog" aria-labelledby="correctionTagsDialogTitle">
+          <form method="dialog" class="names-dialog-panel">
+            <div class="card-head">
+              <div>
+                <h3 id="correctionTagsDialogTitle">Balises à afficher</h3>
+              </div>
+            </div>
+            <div class="correction-tags-bulk-actions">
+              <button id="selectAllCorrectionTags" type="button">Tout sélectionner</button>
+              <button id="deselectAllCorrectionTags" type="button">Tout désélectionner</button>
+              <button class="primary-button" type="submit">Valider</button>
+              <button class="icon-button correction-tags-dialog-close" type="submit" aria-label="Fermer" title="Fermer">×</button>
+            </div>
+            <div class="correction-tags-picker" id="correctionTagsPicker"></div>
+          </form>
+        </dialog>
+      </section>
+
+      <section class="tool-card proofreading-card" id="proofreadingCard" aria-labelledby="proofreadingTitle" hidden>
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Corriger sa production écrite</p>
+            <h2 id="proofreadingTitle">Relecture</h2>
+          </div>
+          <button class="icon-button" id="proofreadingResize" type="button" aria-label="Agrandir la relecture" title="Agrandir">⛶</button>
+        </div>
+
+        <div class="proofreading-list" id="proofreadingList" aria-live="polite"></div>
+      </section>
+
+      <section class="tool-card timeline-card" id="timelineCard" aria-labelledby="timelineTitle" hidden>
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Se repérer</p>
+            <h2 id="timelineTitle">Frises chronologiques</h2>
+          </div>
+          <button class="icon-button" id="timelineResize" type="button" aria-label="Agrandir les frises" title="Agrandir">⛶</button>
+        </div>
+
+        <div class="timeline-filters" aria-label="Filtres de frise">
+          <select id="levelFilter">
+            <option value="CM1">CM1</option>
+            <option value="CM2">CM2</option>
+            <option value="6e">6e</option>
+            <option value="5e">5e</option>
+            <option value="4e">4e</option>
+            <option value="3e">3e</option>
+          </select>
+          <select id="periodFilter">
+            <option value="Tous">Toutes periodes</option>
+            <option value="Préhistoire">Préhistoire</option>
+            <option value="Antiquité">Antiquité</option>
+            <option value="Moyen Âge">Moyen Âge</option>
+            <option value="Temps modernes">Temps modernes</option>
+            <option value="Époque contemporaine">Époque contemporaine</option>
+          </select>
+          <input id="timelineSearch" type="search" placeholder="Chercher un repere">
+        </div>
+
+        <div class="timeline-period-legend" aria-label="Grandes périodes historiques">
+          <span style="--period-color: var(--period-prehistory)">Préhistoire</span>
+          <span style="--period-color: var(--period-antiquity)">Antiquité</span>
+          <span style="--period-color: var(--period-medieval)">Moyen Âge</span>
+          <span style="--period-color: var(--period-modern)">Temps modernes</span>
+          <span style="--period-color: var(--period-contemporary)">Époque contemporaine</span>
+        </div>
+
+        <div class="timeline-move-row" aria-label="Se déplacer dans la frise">
+          <button class="icon-button" id="timelineBack" type="button" aria-label="Reculer dans la frise" title="Reculer">←</button>
+          <button id="timelineResetScroll" type="button">Début</button>
+          <button class="icon-button" id="timelineForward" type="button" aria-label="Avancer dans la frise" title="Avancer">→</button>
+        </div>
+
+        <div class="timeline-list" id="timelineList"></div>
+        <p class="timeline-note">Échelle relative : afin de préserver la lisibilité, les écarts entre les repères peuvent être simplifiés et ne correspondent pas toujours strictement aux durées réelles. Source des images : <a class="timeline-source" href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a>.</p>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p><strong>Tableau de bord HG</strong> créé par <a href="https://th.linkedin.com/in/alexandre-balet" target="_blank" rel="noopener"><strong>Alexandre Balet</strong></a> pour <a href="http://www.laclassedhistoire.fr/" target="_blank" rel="noopener"><strong>La Classe d'Histoire</strong></a>. A partir des outils de classe de Ralentir travaux.<br>Contenu sous licence Creative Commons CC BY-SA.</p>
+      <div class="license-icons" aria-label="Licence Creative Commons CC BY-SA">
+        <span class="license-icon">CC</span>
+        <span class="license-icon">BY</span>
+        <span class="license-icon">SA</span>
+      </div>
+    </footer>
+  </body>
+</html>
