@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" role="img" aria-labelledby="title desc">
+  <title id="title">France regions simplifiee</title>
+  <desc id="desc">Carte schematique des regions de France metropolitaine.</desc>
+  <rect width="900" height="720" fill="#e5f0f4"/>
+  <path d="M433 68 563 112l83 92 85 22 15 112-56 87 32 107-91 78-118-8-89 61-102-45-123 13-64-93 42-104-54-88 48-100-13-89 132-24Z" fill="#fff8e8" stroke="#46545a" stroke-width="5"/>
+  <g stroke="#fff" stroke-width="7" fill="none">
+    <path d="M344 124 365 265 281 352 177 344"/>
+    <path d="M365 265 523 260 646 204"/>
+    <path d="M523 260 534 404 689 425"/>
+    <path d="M281 352 392 443 424 663"/>
+    <path d="M392 443 534 404 631 610"/>
+    <path d="M238 530 392 443"/>
+  </g>
+  <g fill="rgba(8,145,178,.18)">
+    <path d="M190 157 344 124 365 265 281 352 177 344 123 257Z"/>
+    <path d="M344 124 563 112 646 204 523 260 365 265Z"/>
+    <path d="M646 204 731 226 746 338 689 425 534 404 523 260Z"/>
+    <path d="M177 344 281 352 392 443 238 530 135 538 177 434 123 346Z"/>
+    <path d="M281 352 365 265 523 260 534 404 392 443Z"/>
+    <path d="M392 443 534 404 631 610 513 602 424 663Z"/>
+    <path d="M238 530 392 443 424 663 322 618 199 631 135 538Z"/>
+    <path d="M689 425 722 532 631 610 534 404Z"/>
+  </g>
+  <g fill="#263238" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">
+    <text x="196" y="248">Bretagne</text>
+    <text x="394" y="190">Hauts-de-France</text>
+    <text x="558" y="324">Grand Est</text>
+    <text x="195" y="470">Nouvelle-Aquitaine</text>
+    <text x="376" y="356">Centre</text>
+    <text x="410" y="542">Occitanie</text>
+    <text x="555" y="516">AURA</text>
+    <text x="608" y="590">PACA</text>
+  </g>
+</svg>
