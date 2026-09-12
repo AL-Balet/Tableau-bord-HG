@@ -3,25 +3,27 @@ const storageKeys = {
   students: "hg-dashboard-students",
   language: "hg-dashboard-language",
   timerSound: "hg-dashboard-timer-sound",
+  soundCode: "hg-dashboard-sound-code",
   helpBoard: "hg-dashboard-help-board",
   correctionTags: "hg-dashboard-correction-tags",
   shortcuts: "hg-dashboard-shortcuts",
-  homeTools: "hg-dashboard-home-tools"
+  homeTools: "hg-dashboard-home-tools",
+  subjectAssignments: "hg-dashboard-subject-assignments"
 };
 
 const translations = {
   fr: {
     nav: ["Accueil", "Date", "Minuteur", "Cartes", "OSM", "Frises", "Consignes", "Relecture", "Balises", "Groupes", "Aide"],
     title: "Mon tableau de bord HG",
-    subtitle: "Mes outils de classe en un seul endroit",
+    subtitle: "Les essentiels du cours d'HG, à portée de clic",
     dateTitle: "Calendrier",
-    dateSubtitle: "La boite à outils du prof d'Histoire et Géographie",
+    dateSubtitle: "Pour garder le fil",
     toolHeaders: {
-      homeCard: ["Mon tableau de bord HG", "Mes outils de classe en un seul endroit"],
+      homeCard: ["Mon tableau de bord HG", "Les essentiels du cours d'HG, à portée de clic"],
       timerCard: ["Minuteur", "Organiser les temps de travail et de pause."],
       mapCard: ["Cartes", "Afficher des cartes thématiques et des fonds de carte."],
       osmCard: ["Explorer", "Rechercher des lieux, voyager dans l'espace... et dans le temps !"],
-      groupsCard: ["Travailler ensemble", "Créer des groupes ou tirer au sort des élèves."],
+      groupsCard: ["Travailler ensemble", "Créer des groupes, tirer au sort ou attribuer des sujets."],
       helpCard: ["Aide", "Organiser l'entraide dans la classe."],
       instructionsCard: ["Consignes", "Expliciter les verbes de consignes pour réaliser un travail."],
       correctionTagsCard: ["Balises de correction", "Identifier des erreurs et envisager des pistes pour les corriger."],
@@ -65,9 +67,30 @@ const translations = {
     next: "Suivant",
     reset: "Reset",
     sound: "Sonnerie",
+    soundCode: "Code des sons",
+    soundCodeLevel: "Niveau sonore attendu",
+    soundLevels: {
+      silent: "Silence",
+      whisper: "Chuchotement",
+      low: "Voix basse",
+      hand: "Prise de parole"
+    },
+    soundCodeHeadings: {
+      silent: "Défense de parler",
+      whisper: "Chuchotement",
+      low: "Voix basse",
+      hand: "Prise de parole"
+    },
+    soundGuidance: {
+      silent: "Je peux rester concentré sur ma tâche et travailler en silence. Je ne communique pas, même par gestes. C'est un moment de travail individuel qui nécessite toute ma concentration.",
+      whisper: "Je peux communiquer avec mes voisins à voix basse. Mes échanges sont brefs et liés au travail en cours. Je veille à ne pas déranger les autres élèves qui travaillent.",
+      low: "Je peux discuter avec mes camarades. Les échanges d'idées et le travail collaboratif sont encouragés. Je maintiens toutefois un volume sonore raisonnable qui ne dérange pas le reste de la classe.",
+      hand: "Je peux prendre la parole après avoir demandé l'autorisation."
+    },
     testSound: "Tester",
     remaining: "restant",
     readyWork: "Pret pour une session de travail.",
+    timerFinished: "Minuteur terminé.",
     running: "en cours : il reste",
     warning: "Attention, il reste",
     nearingEnd: "Il reste {time}. On approche de la fin.",
@@ -99,7 +122,8 @@ const translations = {
       "france-blank-mercator-graticule": "France hexagonale Equal Earth",
       "united-states-blank-hatier-2018": "États-Unis",
       "china-blank-hatier-2020": "Chine",
-      "united-kingdom-blank-hatier-2024": "Royaume-Uni"
+      "united-kingdom-blank-hatier-2024": "Royaume-Uni",
+      "mediterranean-blank-equal-earth-graticule": "Mer Méditerranée"
     },
     osmTitle: "OpenStreetMap",
     osmProviderOsm: "OpenStreetMap",
@@ -115,8 +139,17 @@ const translations = {
     groupsTitle: "Groupes",
     groupsView: "Faire des groupes",
     wheelView: "Tirer au sort",
+    assignmentsView: "Attribuer des sujets",
+    assignmentStudents: "Élèves",
+    assignmentTopics: "Mots ou sujets",
+    assignmentStudentsPlaceholder: "Un élève par ligne",
+    assignmentTopicsPlaceholder: "Un mot ou sujet par ligne",
+    assignTopics: "Attribuer aléatoirement",
+    assignmentEmpty: "Saisissez des élèves et des mots ou sujets, puis lancez l’attribution.",
+    assignmentStatus: "{students} élève(s) associé(s) à {topics} sujet(s).",
     namesButton: "Noms",
     saveNames: "Enregistrer",
+    importNames: "Importer une liste",
     namesHelp: "Un nom par ligne. Vous pouvez coller une liste complète.",
     students: "Eleves",
     size: "Taille",
@@ -203,7 +236,7 @@ const translations = {
       timerCard: ["Timer", "Organize work and break times."],
       mapCard: ["Maps", "Display thematic maps and blank maps."],
       osmCard: ["Explore", "Find places and compare territorial maps."],
-      groupsCard: ["Work together", "Create groups and select a student at random."],
+      groupsCard: ["Work together", "Create groups, draw students, or assign topics."],
       helpCard: ["Help", "Organize peer support in the classroom."],
       instructionsCard: ["Instructions", "Understand the expected action verbs."],
       correctionTagsCard: ["Correction tags", "Identify errors and find ways to correct them."],
@@ -247,9 +280,30 @@ const translations = {
     next: "Next",
     reset: "Reset",
     sound: "Sound",
+    soundCode: "Sound code",
+    soundCodeLevel: "Expected sound level",
+    soundLevels: {
+      silent: "Silence",
+      whisper: "Whisper",
+      low: "Quiet voice",
+      hand: "Raise your hand"
+    },
+    soundCodeHeadings: {
+      silent: "No talking",
+      whisper: "Whisper",
+      low: "Quiet voice",
+      hand: "Raise your hand"
+    },
+    soundGuidance: {
+      silent: "I do not speak; I focus on my task.",
+      whisper: "I whisper with my group.",
+      low: "I use a quiet voice without disturbing others.",
+      hand: "I raise my hand before speaking."
+    },
     testSound: "Test",
     remaining: "left",
     readyWork: "Ready for a work session.",
+    timerFinished: "Timer complete.",
     running: "in progress: time left",
     warning: "Careful, time left",
     nearingEnd: "{time} left. Almost done.",
@@ -281,7 +335,8 @@ const translations = {
       "france-blank-mercator-graticule": "Blank Equal Earth map of mainland France",
       "united-states-blank-hatier-2018": "United States",
       "china-blank-hatier-2020": "China",
-      "united-kingdom-blank-hatier-2024": "United Kingdom"
+      "united-kingdom-blank-hatier-2024": "United Kingdom",
+      "mediterranean-blank-equal-earth-graticule": "Mediterranean Sea"
     },
     osmTitle: "OpenStreetMap",
     osmProviderOsm: "OpenStreetMap",
@@ -297,8 +352,17 @@ const translations = {
     groupsTitle: "Groups",
     groupsView: "Make groups",
     wheelView: "Draw",
+    assignmentsView: "Assign topics",
+    assignmentStudents: "Students",
+    assignmentTopics: "Words or topics",
+    assignmentStudentsPlaceholder: "One student per line",
+    assignmentTopicsPlaceholder: "One word or topic per line",
+    assignTopics: "Assign randomly",
+    assignmentEmpty: "Enter students and words or topics, then assign them.",
+    assignmentStatus: "{students} student(s) matched with {topics} topic(s).",
     namesButton: "Names",
     saveNames: "Save",
+    importNames: "Import a list",
     namesHelp: "One name per line. You can paste a full list.",
     students: "Students",
     size: "Size",
@@ -499,6 +563,12 @@ const mapDefinitions = {
     alt: "Fond de carte vierge du Royaume-Uni",
     caption: "",
     source: "Source : Cartothèque Hatier, 2024, Jean-Pierre Crivellari."
+  },
+  "mediterranean-blank-equal-earth-graticule": {
+    src: "assets/maps/mediterranean-blank-equal-earth-graticule.png",
+    alt: "Fond de carte vierge de la mer Méditerranée en projection Equal Earth",
+    caption: "",
+    source: "Source : Equal Earth - Réalisé avec Graticule"
   }
 };
 
@@ -2483,18 +2553,20 @@ const els = {
   themeToggle: document.querySelector("#themeToggle"),
   timerCard: document.querySelector("#timerCard"),
   timerFace: document.querySelector("#timerFace"),
-  timerModeLabel: document.querySelector("#timerModeLabel"),
   timerDisplay: document.querySelector("#timerDisplay"),
   timerPercent: document.querySelector("#timerPercent"),
   timerStatus: document.querySelector("#timerStatus"),
   durationMinutesInput: document.querySelector("#durationMinutesInput"),
   timerSoundSelect: document.querySelector("#timerSoundSelect"),
   testTimerSound: document.querySelector("#testTimerSound"),
+  soundCodeEnabled: document.querySelector("#soundCodeEnabled"),
+  soundCodeLevelButtons: document.querySelectorAll("[data-sound-level]"),
+  soundCodeIndicator: document.querySelector("#soundCodeIndicator"),
+  soundCodeLabel: document.querySelector("#soundCodeLabel"),
+  soundCodeGuidance: document.querySelector("#soundCodeGuidance"),
   startTimer: document.querySelector("#startTimer"),
   pauseTimer: document.querySelector("#pauseTimer"),
-  skipTimer: document.querySelector("#skipTimer"),
   resetTimer: document.querySelector("#resetTimer"),
-  roundDots: document.querySelector("#roundDots"),
   mapCard: document.querySelector("#mapCard"),
   mapStage: document.querySelector("#mapStage"),
   thematicMapSelect: document.querySelector("#thematicMapSelect"),
@@ -2525,10 +2597,13 @@ const els = {
   namesDialog: document.querySelector("#namesDialog"),
   closeNamesModal: document.querySelector("#closeNamesModal"),
   saveNamesModal: document.querySelector("#saveNamesModal"),
+  importStudentNames: document.querySelector("#importStudentNames"),
+  importStudentNamesFile: document.querySelector("#importStudentNamesFile"),
   studentNames: document.querySelector("#studentNames"),
   groupsTabs: document.querySelectorAll("[data-groups-view]"),
   groupsGeneratorView: document.querySelector("#groupsGeneratorView"),
   groupsWheelView: document.querySelector("#groupsWheelView"),
+  groupsAssignmentsView: document.querySelector("#groupsAssignmentsView"),
   groupSize: document.querySelector("#groupSize"),
   groupMode: document.querySelector("#groupMode"),
   generateGroups: document.querySelector("#generateGroups"),
@@ -2544,6 +2619,11 @@ const els = {
   wheelWinner: document.querySelector("#wheelWinner"),
   wheelPoolStatus: document.querySelector("#wheelPoolStatus"),
   wheelHistory: document.querySelector("#wheelHistory"),
+  assignmentStudents: document.querySelector("#assignmentStudents"),
+  assignmentTopics: document.querySelector("#assignmentTopics"),
+  assignTopics: document.querySelector("#assignTopics"),
+  assignmentStatus: document.querySelector("#assignmentStatus"),
+  assignmentOutput: document.querySelector("#assignmentOutput"),
   helpNeedForm: document.querySelector("#helpNeedForm"),
   helpNeedInput: document.querySelector("#helpNeedInput"),
   helpOfferForm: document.querySelector("#helpOfferForm"),
@@ -2566,7 +2646,6 @@ const els = {
   proofreadingResize: document.querySelector("#proofreadingResize"),
   proofreadingList: document.querySelector("#proofreadingList"),
   levelFilter: document.querySelector("#levelFilter"),
-  periodFilter: document.querySelector("#periodFilter"),
   timelineSearch: document.querySelector("#timelineSearch"),
   timelineCard: document.querySelector("#timelineCard"),
   timelineResize: document.querySelector("#timelineResize"),
@@ -2594,6 +2673,7 @@ const timerDurations = {
 
 let currentLanguage = localStorage.getItem(storageKeys.language) || "fr";
 let selectedTimerSound = localStorage.getItem(storageKeys.timerSound) || "bell";
+let soundCode = loadSoundCode();
 let currentMapId = "world-reliefs-thematic";
 let mapZoom = 1;
 let calendarCursor = new Date();
@@ -2625,6 +2705,7 @@ let osmState = {
 };
 let osmProvider = "osm";
 let lastGroupsText = "";
+let assignmentBoard = loadAssignmentBoard();
 
 init();
 
@@ -2902,9 +2983,11 @@ function exportDashboardData() {
       theme: localStorage.getItem(storageKeys.theme),
       language: currentLanguage,
       timerSound: selectedTimerSound,
+      soundCode,
       helpBoard,
       correctionTags: [...visibleCorrectionTags],
       homeTools: homeToolSettings,
+      subjectAssignments: assignmentBoard,
     },
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
@@ -2930,17 +3013,21 @@ async function importDashboardData(event) {
     if (["light", "dark"].includes(settings.theme)) localStorage.setItem(storageKeys.theme, settings.theme);
     if (["fr", "en"].includes(settings.language)) localStorage.setItem(storageKeys.language, settings.language);
     if (typeof settings.timerSound === "string") localStorage.setItem(storageKeys.timerSound, settings.timerSound);
+    if (settings.soundCode && typeof settings.soundCode === "object") localStorage.setItem(storageKeys.soundCode, JSON.stringify(settings.soundCode));
     if (settings.helpBoard && typeof settings.helpBoard === "object") localStorage.setItem(storageKeys.helpBoard, JSON.stringify(settings.helpBoard));
     if (Array.isArray(settings.correctionTags)) localStorage.setItem(storageKeys.correctionTags, JSON.stringify(settings.correctionTags));
     if (settings.homeTools && typeof settings.homeTools === "object") localStorage.setItem(storageKeys.homeTools, JSON.stringify(settings.homeTools));
+    if (settings.subjectAssignments && typeof settings.subjectAssignments === "object") localStorage.setItem(storageKeys.subjectAssignments, JSON.stringify(settings.subjectAssignments));
 
     els.studentNames.value = backup.students;
     shortcuts = loadShortcuts();
     helpBoard = loadHelpBoard();
     visibleCorrectionTags = loadVisibleCorrectionTags();
     homeToolSettings = loadHomeToolSettings();
+    assignmentBoard = loadAssignmentBoard();
     currentLanguage = localStorage.getItem(storageKeys.language) || "fr";
     selectedTimerSound = localStorage.getItem(storageKeys.timerSound) || "bell";
+    soundCode = loadSoundCode();
     document.body.classList.toggle("dark", localStorage.getItem(storageKeys.theme) === "dark");
     applyLanguage();
     renderShortcuts();
@@ -2949,6 +3036,9 @@ async function importDashboardData(event) {
     renderCorrectionTags();
     generateGroups();
     renderWheel();
+    renderSoundCode();
+    loadAssignmentInputs();
+    renderSubjectAssignments();
     showToast(tr("backupImported"));
   } catch {
     showToast(tr("backupInvalid"));
@@ -3042,14 +3132,18 @@ function applyLanguage() {
   document.querySelector("#shortcutUrlLabel").textContent = tr("shortcutUrl");
   els.shortcutForm.querySelector("button").textContent = tr("shortcutAdd");
   document.querySelector("#timerTitle").textContent = tr("timerTitle");
-  document.querySelector(".pomodoro-modes [data-mode='work']").textContent = tr("work");
-  document.querySelector(".pomodoro-modes [data-mode='short']").textContent = tr("short");
   document.querySelector("#durationMinutesInput").previousElementSibling.textContent = tr("duration");
   document.querySelector("#timerSoundSelect").previousElementSibling.textContent = tr("sound");
+  document.querySelector("#soundCodeEnabled").nextElementSibling.textContent = tr("soundCode");
+  document.querySelector("#soundCodeLevelLabel").textContent = tr("soundCodeLevel");
+  const soundLevels = tr("soundLevels");
+  els.soundCodeLevelButtons.forEach((button) => {
+    button.textContent = soundLevels[button.dataset.soundLevel] || button.dataset.soundLevel;
+  });
+  renderSoundCode();
   els.testTimerSound.textContent = tr("testSound");
   els.startTimer.textContent = timer.running ? tr("resume") : tr("start");
   els.pauseTimer.textContent = tr("pause");
-  els.skipTimer.textContent = tr("next");
   els.resetTimer.textContent = tr("reset");
   document.querySelector("#mapTitle").textContent = tr("mapsTitle");
   updateMapMenuLabels();
@@ -3102,6 +3196,11 @@ function applyLanguage() {
   }
   document.querySelector("#osmSearchForm button[type='submit']").textContent = tr("search");
   document.querySelector("#generateGroups").textContent = tr("generate");
+  els.importStudentNames.textContent = tr("importNames");
+  document.querySelector("#groupsModeGroups").textContent = tr("groupsView");
+  document.querySelector("#groupsModeWheel").textContent = tr("wheelView");
+  document.querySelector("#groupsModeAssignments").textContent = tr("assignmentsView");
+  els.assignTopics.textContent = tr("assignTopics");
   els.groupMode.querySelector("option[value='size']").textContent = tr("groupsOfSize");
   els.groupMode.querySelector("option[value='count']").textContent = tr("numberOfGroups");
   els.spinWheel.textContent = tr("spinWheel");
@@ -3117,6 +3216,10 @@ function applyLanguage() {
   setLabelText("#studentNames", tr("students"));
   setLabelText("#groupSize", tr("size"));
   setLabelText("#groupMode", tr("mode"));
+  setLabelText("#assignmentStudents", tr("assignmentStudents"));
+  setLabelText("#assignmentTopics", tr("assignmentTopics"));
+  els.assignmentStudents.placeholder = tr("assignmentStudentsPlaceholder");
+  els.assignmentTopics.placeholder = tr("assignmentTopicsPlaceholder");
   if (generatedGroupNames.length) {
     generatedGroupNames = generatedGroupNames.map((name, index) => (
       /^(Groupe|Group) \d+$/.test(name.trim()) ? defaultGroupName(index) : name
@@ -3128,6 +3231,7 @@ function applyLanguage() {
   renderHomeTools();
   renderShortcuts();
   renderHelpBoard();
+  renderSubjectAssignments();
   renderProofreading();
   updatePageHeader(getInitialToolId());
 }
@@ -3224,10 +3328,6 @@ function bindTimer() {
     localStorage.setItem(storageKeys.theme, document.body.classList.contains("dark") ? "dark" : "light");
   });
 
-  document.querySelectorAll(".pomodoro-modes [data-mode]").forEach((button) => {
-    button.addEventListener("click", () => setPomodoroMode(button.dataset.mode));
-  });
-
   els.durationMinutesInput.addEventListener("input", () => {
     timerDurations[timer.mode] = Math.max(1, Number(els.durationMinutesInput.value) || getDefaultModeMinutes(timer.mode));
     if (!timer.running) {
@@ -3243,9 +3343,15 @@ function bindTimer() {
   });
   els.testTimerSound.addEventListener("click", playTimerSound);
 
+  els.soundCodeEnabled.checked = soundCode.enabled;
+  els.soundCodeEnabled.addEventListener("change", () => saveSoundCode());
+  els.soundCodeLevelButtons.forEach((button) => {
+    button.addEventListener("click", () => saveSoundCode(button.dataset.soundLevel));
+  });
+  renderSoundCode();
+
   els.startTimer.addEventListener("click", startTimer);
   els.pauseTimer.addEventListener("click", pauseTimer);
-  els.skipTimer.addEventListener("click", advancePomodoro);
   els.resetTimer.addEventListener("click", resetTimer);
 
   document.addEventListener("keydown", (event) => {
@@ -3257,20 +3363,45 @@ function bindTimer() {
   });
 }
 
-function setPomodoroMode(mode) {
-  pauseTimer();
-  timer.mode = mode;
-  els.durationMinutesInput.value = timerDurations[mode] || getDefaultModeMinutes(mode);
-  timer.initial = getModeSeconds(mode);
-  timer.remaining = timer.initial;
-  timer.endAt = null;
-  els.timerCard.dataset.mode = mode;
-  els.startTimer.textContent = tr("start");
-  els.timerFace.classList.remove("done");
-  document.querySelectorAll(".pomodoro-modes [data-mode]").forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.mode === mode);
+function loadSoundCode() {
+  const stored = loadJson(storageKeys.soundCode, {});
+  return {
+    enabled: stored.enabled === true,
+    level: ["silent", "whisper", "low", "hand"].includes(stored.level) ? stored.level : "silent"
+  };
+}
+
+function saveSoundCode(level = soundCode.level) {
+  soundCode = {
+    enabled: els.soundCodeEnabled.checked,
+    level
+  };
+  localStorage.setItem(storageKeys.soundCode, JSON.stringify(soundCode));
+  renderSoundCode();
+}
+
+function renderSoundCode() {
+  if (!els.soundCodeIndicator) return;
+  const level = soundCode.level;
+  const levels = tr("soundCodeHeadings");
+  const guidance = tr("soundGuidance");
+  els.soundCodeEnabled.checked = soundCode.enabled;
+  els.soundCodeLevelButtons.forEach((button) => {
+    const isActive = button.dataset.soundLevel === level;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+    button.disabled = !soundCode.enabled;
   });
-  updateTimerDisplay();
+  els.soundCodeIndicator.hidden = !soundCode.enabled;
+  els.soundCodeIndicator.dataset.level = level;
+  els.timerCard.classList.toggle("has-sound-code", soundCode.enabled);
+  if (soundCode.enabled) {
+    els.timerCard.dataset.soundLevel = level;
+  } else {
+    delete els.timerCard.dataset.soundLevel;
+  }
+  els.soundCodeLabel.textContent = levels[level] || level;
+  els.soundCodeGuidance.textContent = guidance[level] || "";
 }
 
 function resetTimer() {
@@ -3322,7 +3453,6 @@ function tickTimer() {
     pauseTimer();
     els.timerFace.classList.add("done");
     playTimerSound();
-    setTimeout(advancePomodoro, 900);
   }
 }
 
@@ -3332,9 +3462,7 @@ function updateTimerDisplay() {
   els.timerDisplay.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   const progress = timer.initial > 0 ? Math.max(0, (timer.remaining / timer.initial) * 100) : 100;
   els.timerFace.style.setProperty("--progress", `${progress}%`);
-  els.timerModeLabel.textContent = getModeLabel(timer.mode);
   els.timerPercent.textContent = `${Math.round(progress)}% ${tr("remaining")}`;
-  renderRoundDots();
   updateTimerStatus(progress);
 }
 
@@ -3343,7 +3471,12 @@ function updateTimerStatus(progress) {
   els.timerStatus.classList.toggle("is-urgent", progress <= 20);
 
   if (timer.remaining <= 0 && timer.initial > 0) {
-    els.timerStatus.textContent = tr("finished").replace("{mode}", getModeLabel(timer.mode));
+    els.timerStatus.textContent = tr("timerFinished");
+    return;
+  }
+
+  if (!timer.running && timer.remaining === timer.initial) {
+    els.timerStatus.textContent = tr("readyWork");
     return;
   }
 
@@ -3358,32 +3491,8 @@ function updateTimerStatus(progress) {
   } else if (progress <= 50) {
     els.timerStatus.textContent = tr("nearingEnd").replace("{time}", readable);
   } else {
-    els.timerStatus.textContent = `${getModeLabel(timer.mode)} ${tr("running")} ${readable}.`;
+    els.timerStatus.textContent = `${tr("running")} ${readable}.`;
   }
-}
-
-function advancePomodoro() {
-  pauseTimer();
-  els.timerFace.classList.remove("done");
-
-  if (timer.mode === "work") {
-    setPomodoroMode("short");
-    return;
-  }
-
-  setPomodoroMode("work");
-}
-
-function getModeLabel(mode) {
-  if (mode === "short") return tr("short");
-  return tr("work");
-}
-
-function renderRoundDots() {
-  els.roundDots.innerHTML = `
-    <span class="round-dot${timer.mode === "work" ? " is-current" : " is-done"}"></span>
-    <span class="round-dot${timer.mode === "short" ? " is-current" : ""}"></span>
-  `;
 }
 
 function playTimerSound() {
@@ -3718,6 +3827,7 @@ function localizedMapValue(value) {
 }
 
 function bindGroups() {
+  loadAssignmentInputs();
   els.studentNames.addEventListener("input", () => {
     localStorage.setItem(storageKeys.students, els.studentNames.value);
     syncRemovedWheelNames();
@@ -3726,12 +3836,18 @@ function bindGroups() {
   els.openNamesModal.addEventListener("click", openNamesDialog);
   els.closeNamesModal.addEventListener("click", closeNamesDialog);
   els.saveNamesModal.addEventListener("click", closeNamesDialog);
+  els.importStudentNames.addEventListener("click", () => els.importStudentNamesFile.click());
+  els.importStudentNamesFile.addEventListener("change", importStudentNames);
   els.namesDialog.addEventListener("click", (event) => {
     if (event.target === els.namesDialog) closeNamesDialog();
   });
   els.groupsTabs.forEach((button) => {
     button.addEventListener("click", () => setGroupsView(button.dataset.groupsView));
   });
+  [els.assignmentStudents, els.assignmentTopics].forEach((input) => {
+    input.addEventListener("input", saveAssignmentInputs);
+  });
+  els.assignTopics.addEventListener("click", assignSubjects);
   els.generateGroups.addEventListener("click", generateGroups);
   els.shuffleNames.addEventListener("click", shuffleStudentList);
   els.shuffleStudentNames.addEventListener("click", shuffleStudentList);
@@ -3814,6 +3930,7 @@ function bindGroups() {
   });
   generateGroups();
   renderWheel();
+  renderSubjectAssignments();
 }
 
 function loadHelpBoard() {
@@ -3933,17 +4050,119 @@ function closeNamesDialog() {
   renderWheel();
 }
 
+async function importStudentNames(event) {
+  const [file] = event.target.files;
+  if (!file) return;
+  try {
+    const content = await file.text();
+    const names = content
+      .split(/\r?\n|,|;/)
+      .map((name) => name.trim().replace(/^['\"]|['\"]$/g, ""))
+      .filter(Boolean);
+    if (!names.length) throw new Error("Empty list");
+    els.studentNames.value = names.join("\n");
+    localStorage.setItem(storageKeys.students, els.studentNames.value);
+    syncRemovedWheelNames();
+    generateGroups();
+    renderWheel();
+    showToast(currentLanguage === "en" ? "List imported" : "Liste importée");
+  } catch {
+    showToast(currentLanguage === "en" ? "Import unavailable" : "Import impossible");
+  } finally {
+    event.target.value = "";
+  }
+}
+
 function setGroupsView(view) {
-  currentGroupsView = view === "wheel" ? "wheel" : "groups";
+  currentGroupsView = ["groups", "wheel", "assignments"].includes(view) ? view : "groups";
   els.groupsTabs.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.groupsView === currentGroupsView);
   });
   els.groupsGeneratorView.hidden = currentGroupsView !== "groups";
   els.groupsWheelView.hidden = currentGroupsView !== "wheel";
+  els.groupsAssignmentsView.hidden = currentGroupsView !== "assignments";
   els.groupsGeneratorView.classList.toggle("is-active", currentGroupsView === "groups");
   els.groupsWheelView.classList.toggle("is-active", currentGroupsView === "wheel");
+  els.groupsAssignmentsView.classList.toggle("is-active", currentGroupsView === "assignments");
   els.copyGroups.hidden = currentGroupsView !== "groups";
   if (currentGroupsView === "wheel") renderWheel();
+  if (currentGroupsView === "assignments") renderSubjectAssignments();
+}
+
+function loadAssignmentBoard() {
+  const stored = loadJson(storageKeys.subjectAssignments, {});
+  return {
+    students: typeof stored.students === "string" ? stored.students : "",
+    topics: typeof stored.topics === "string" ? stored.topics : "",
+    assignments: Array.isArray(stored.assignments)
+      ? stored.assignments.filter((item) => item && typeof item.student === "string" && typeof item.topic === "string")
+      : []
+  };
+}
+
+function loadAssignmentInputs() {
+  if (!assignmentBoard.students && els.studentNames.value.trim()) {
+    assignmentBoard.students = els.studentNames.value;
+  }
+  els.assignmentStudents.value = assignmentBoard.students;
+  els.assignmentTopics.value = assignmentBoard.topics;
+  saveAssignmentBoard();
+}
+
+function saveAssignmentBoard() {
+  localStorage.setItem(storageKeys.subjectAssignments, JSON.stringify(assignmentBoard));
+}
+
+function saveAssignmentInputs() {
+  assignmentBoard.students = els.assignmentStudents.value;
+  assignmentBoard.topics = els.assignmentTopics.value;
+  assignmentBoard.assignments = [];
+  saveAssignmentBoard();
+  renderSubjectAssignments();
+}
+
+function getAssignmentList(value) {
+  return value.split(/\n|,/).map((item) => item.trim()).filter(Boolean);
+}
+
+function assignSubjects() {
+  const students = getAssignmentList(els.assignmentStudents.value);
+  const topics = getAssignmentList(els.assignmentTopics.value);
+  assignmentBoard.students = els.assignmentStudents.value;
+  assignmentBoard.topics = els.assignmentTopics.value;
+  if (!students.length || !topics.length) {
+    assignmentBoard.assignments = [];
+    saveAssignmentBoard();
+    renderSubjectAssignments();
+    return;
+  }
+
+  const shuffledStudents = shuffle(students);
+  const shuffledTopics = shuffle(topics);
+  assignmentBoard.assignments = shuffledStudents.map((student, index) => ({
+    student,
+    topic: shuffledTopics[index % shuffledTopics.length]
+  }));
+  saveAssignmentBoard();
+  renderSubjectAssignments();
+}
+
+function renderSubjectAssignments() {
+  if (!els.assignmentOutput) return;
+  const students = getAssignmentList(assignmentBoard.students);
+  const topics = getAssignmentList(assignmentBoard.topics);
+  if (!assignmentBoard.assignments.length) {
+    els.assignmentStatus.textContent = tr("assignmentEmpty");
+    els.assignmentOutput.innerHTML = "";
+    return;
+  }
+
+  els.assignmentStatus.textContent = tr("assignmentStatus")
+    .replace("{students}", students.length)
+    .replace("{topics}", topics.length);
+  els.assignmentOutput.innerHTML = assignmentBoard.assignments.map(({ student, topic }) => `
+    <div class="assignment-result"><strong>${escapeHtml(student)}</strong><span>${escapeHtml(topic)}</span></div>
+  `).join("");
 }
 
 function getNames() {
@@ -4356,7 +4575,7 @@ function renderProofreading() {
 }
 
 function bindTimeline() {
-  [els.levelFilter, els.periodFilter, els.timelineSearch].forEach((control) => {
+  [els.levelFilter, els.timelineSearch].forEach((control) => {
     control.addEventListener("input", renderTimeline);
     control.addEventListener("change", renderTimeline);
   });
@@ -4391,7 +4610,7 @@ function bindTimeline() {
 
 function renderTimeline() {
   const level = els.levelFilter.value;
-  const period = els.periodFilter.value;
+  const period = "Tous";
   const query = normalize(els.timelineSearch.value);
   const filtered = timelineEvents
     .filter((event) => event.level === level)
@@ -4962,6 +5181,22 @@ function assignTimelineNearAxisPoints(events, items, centers, proportionalScale,
       item.pointTightAxis = false;
       return;
     }
+    if (isTimelineFourthGradeFirstRepublic(event)) {
+      item.pointLane = "lower";
+      item.relatedDurationLane = 0;
+      item.pointNearAxis = true;
+      item.pointTightAxis = false;
+      return;
+    }
+    if (isTimelineFifthGradeLoweredUpperCard(event)) {
+      item.pointLane = "upper";
+      item.relatedDurationLane = 0;
+      item.pointNearAxis = false;
+      item.pointTightAxis = false;
+      item.pointLoweredUpper = false;
+      item.upperBaseOffset = -30;
+      return;
+    }
     if (isTimelineUpperAxisAlignedDate(event)) {
       item.pointLane = "upper";
       item.relatedDurationLane = 0;
@@ -5130,6 +5365,10 @@ function isTimelineFourthGradeNearAxisStack(event) {
   return event.level === "4e" && !isTimelineDuration(event.date) && getTimelinePointYear(event) === 1848;
 }
 
+function isTimelineFourthGradeFirstRepublic(event) {
+  return event.level === "4e" && !isTimelineDuration(event.date) && event.date === "1792";
+}
+
 function isTimelineFourthGradeUpperStack(event) {
   return event.level === "4e" && !isTimelineDuration(event.date) && getTimelinePointYear(event) === 1871;
 }
@@ -5140,6 +5379,12 @@ function isTimelineFifthGradeDefaultLowerDate(event) {
 
 function isTimelineFifthGradeTightAxisDate(event) {
   return event.level === "5e" && !isTimelineDuration(event.date) && getTimelinePointYear(event) === 1453;
+}
+
+function isTimelineFifthGradeLoweredUpperCard(event) {
+  return event.level === "5e"
+    && !isTimelineDuration(event.date)
+    && ["843", "1054", "1204", "1214", "1258"].includes(event.date);
 }
 
 function isTimelineFifthGradeAlignedWith1598(event) {
@@ -5256,6 +5501,10 @@ function getTimelineProportionalPixelsPerYear(events, displayMode = null) {
 function getTimelineCardHorizontalOffset(event, displayMode = null) {
   if (displayMode === "Tous") return 0;
   if (event.level === "5e" && event.date === "Milieu du XIIe siècle") return 70;
+  if (event.level === "5e" && event.date === "843") return 200;
+  if (event.level === "5e" && event.date === "1054") return 120;
+  if (event.level === "5e" && event.date === "1204") return -320;
+  if (event.level === "5e" && event.date === "1258") return 200;
   if (isTimelineFifthGradeAlignedWith1598(event)) return -70;
   if (isTimelineCm2AlignedUnder1802(event)) return -100;
   if (isTimelineCm2WwiiAlignedDate(event) && event.date === "1944") return -100;

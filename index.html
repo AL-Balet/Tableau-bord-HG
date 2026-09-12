@@ -7,8 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260828-193">
-  <script src="app.js?v=20260828-196" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260912-222">
+  <script src="app.js?v=20260911-218" defer></script>
   </head>
   <body>
     <header class="app-header">
@@ -63,7 +63,7 @@
       <div class="title-block">
         <p class="kicker" id="appKicker"><img class="home-brand-icon" src="assets/branding/la-classe-dhistoire.png" alt=""><span id="appKickerLabel">Tableau de bord HG</span></p>
         <h1>Mon tableau de bord HG <span class="beta-badge">BETA</span></h1>
-        <p class="subtitle">Retrouvez vos outils de classe en un seul endroit.</p>
+        <p class="subtitle">Les essentiels du cours d'HG, à portée de clic.</p>
       </div>
       <section class="date-banner is-active-tool" id="dateBanner" aria-label="Date et calendrier">
         <div class="date-now" aria-live="polite">
@@ -135,49 +135,78 @@
           </div>
         </div>
 
-        <div class="pomodoro-modes" aria-label="Mode du Pomodoro">
-          <button class="is-active" type="button" data-mode="work">Travail</button>
-          <button type="button" data-mode="short">Pause</button>
-        </div>
+        <div class="timer-workspace">
+          <section class="timer-pane" aria-label="Minuteur">
+            <div class="pomodoro-face" id="timerFace" style="--progress: 100%">
+              <div class="pomodoro-orbit" aria-hidden="true"></div>
+              <div class="pomodoro-core">
+                <strong id="timerDisplay">10:00</strong>
+                <small id="timerPercent">100% restant</small>
+              </div>
+            </div>
 
-        <div class="pomodoro-face" id="timerFace" style="--progress: 100%">
-          <div class="pomodoro-orbit" aria-hidden="true"></div>
-          <div class="pomodoro-core">
-            <span class="pomodoro-label" id="timerModeLabel">Travail</span>
-            <strong id="timerDisplay">10:00</strong>
-            <small id="timerPercent">100% restant</small>
-          </div>
-        </div>
+            <div class="timer-status" id="timerStatus" aria-live="polite">Pret pour une session de travail.</div>
 
-        <div class="timer-status" id="timerStatus" aria-live="polite">Pret pour une session de travail.</div>
+            <div class="pomodoro-settings" aria-label="Reglages du minuteur">
+              <label>
+                <span>Duree</span>
+                <input id="durationMinutesInput" type="number" min="1" max="90" value="10">
+              </label>
+              <label>
+                <span>Sonnerie</span>
+                <select id="timerSoundSelect">
+                  <option value="bell">Bell</option>
+                  <option value="gameOver">Game Over</option>
+                  <option value="buzzer">Buzzer</option>
+                  <option value="stop">Stop</option>
+                  <option value="disappointed">Disappointed</option>
+                  <option value="backToWork">Back to work</option>
+                  <option value="odeToJoy">Ode to joy</option>
+                </select>
+              </label>
+              <button id="testTimerSound" type="button">Tester</button>
+            </div>
 
-        <div class="pomodoro-rounds" id="roundDots" aria-label="Progression des cycles"></div>
+            <div class="action-row">
+              <button class="primary-button" id="startTimer" type="button">Demarrer</button>
+              <button id="pauseTimer" type="button">Pause</button>
+              <button id="resetTimer" type="button">Reset</button>
+            </div>
+          </section>
 
-        <div class="pomodoro-settings" aria-label="Reglages Pomodoro">
-          <label>
-            <span>Duree</span>
-            <input id="durationMinutesInput" type="number" min="1" max="90" value="10">
-          </label>
-          <label>
-            <span>Sonnerie</span>
-            <select id="timerSoundSelect">
-              <option value="bell">Bell</option>
-              <option value="gameOver">Game Over</option>
-              <option value="buzzer">Buzzer</option>
-              <option value="stop">Stop</option>
-              <option value="disappointed">Disappointed</option>
-              <option value="backToWork">Back to work</option>
-              <option value="odeToJoy">Ode to joy</option>
-            </select>
-          </label>
-          <button id="testTimerSound" type="button">Tester</button>
-        </div>
+          <aside class="sound-code-panel" aria-label="Code des sons">
+            <div class="sound-code-indicator" id="soundCodeIndicator" aria-live="polite" hidden>
+              <span class="sound-code-badge" aria-hidden="true">
+                <svg class="sound-code-volume" viewBox="0 0 24 24">
+                  <path d="M4 10v4h4l5 4V6L8 10H4Z"></path>
+                  <path class="sound-mute" d="m17 9 4 4m0-4-4 4"></path>
+                  <path class="sound-wave sound-wave-one" d="M16 10.5a3 3 0 0 1 0 3"></path>
+                  <path class="sound-wave sound-wave-two" d="M18.5 8a6.5 6.5 0 0 1 0 8"></path>
+                  <path class="sound-wave sound-wave-three" d="M21 5.5a10 10 0 0 1 0 13"></path>
+                </svg>
+              </span>
+              <div class="sound-code-copy">
+                <strong id="soundCodeLabel">Silence</strong>
+                <span class="sound-code-guidance" id="soundCodeGuidance">Je ne parle pas, je me concentre.</span>
+              </div>
+            </div>
 
-        <div class="action-row">
-          <button class="primary-button" id="startTimer" type="button">Demarrer</button>
-          <button id="pauseTimer" type="button">Pause</button>
-          <button id="skipTimer" type="button">Suivant</button>
-          <button id="resetTimer" type="button">Reset</button>
+            <div class="sound-code-settings">
+              <label class="sound-code-toggle">
+                <input id="soundCodeEnabled" type="checkbox">
+                <span>Code des sons</span>
+              </label>
+              <div class="sound-code-level-picker">
+                <span id="soundCodeLevelLabel">Niveau sonore attendu</span>
+                <div class="sound-code-levels" role="group" aria-labelledby="soundCodeLevelLabel">
+                  <button type="button" data-sound-level="silent">Silence</button>
+                  <button type="button" data-sound-level="whisper">Chuchotement</button>
+                  <button type="button" data-sound-level="low">Voix basse</button>
+                  <button type="button" data-sound-level="hand">Prise de parole</button>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -232,6 +261,7 @@
                 <option value="united-states-blank-hatier-2018">États-Unis</option>
                 <option value="china-blank-hatier-2020">Chine</option>
                 <option value="united-kingdom-blank-hatier-2024">Royaume-Uni</option>
+                <option value="mediterranean-blank-equal-earth-graticule">Mer Méditerranée</option>
               </optgroup>
             </select>
           </label>
@@ -323,6 +353,7 @@
         <div class="groups-tabs" aria-label="Mode de l'outil Groupes">
           <button class="is-active" id="groupsModeGroups" type="button" data-groups-view="groups">Faire des groupes</button>
           <button id="groupsModeWheel" type="button" data-groups-view="wheel">Tirer au sort</button>
+          <button id="groupsModeAssignments" type="button" data-groups-view="assignments">Attribuer des sujets</button>
         </div>
 
         <div class="groups-view is-active" id="groupsGeneratorView">
@@ -368,6 +399,24 @@
           </div>
         </div>
 
+        <div class="groups-view assignments-view" id="groupsAssignmentsView" hidden>
+          <div class="assignment-inputs">
+            <label>
+              <span>Élèves</span>
+              <textarea id="assignmentStudents" rows="9" spellcheck="false" placeholder="Un élève par ligne"></textarea>
+            </label>
+            <label>
+              <span>Mots ou sujets</span>
+              <textarea id="assignmentTopics" rows="9" spellcheck="false" placeholder="Un mot ou sujet par ligne"></textarea>
+            </label>
+          </div>
+          <div class="action-row">
+            <button class="primary-button" id="assignTopics" type="button">Attribuer aléatoirement</button>
+          </div>
+          <p class="assignment-status" id="assignmentStatus" aria-live="polite"></p>
+          <div class="assignment-output" id="assignmentOutput" aria-live="polite"></div>
+        </div>
+
         <dialog class="names-dialog" id="namesDialog" aria-labelledby="namesDialogTitle">
           <form method="dialog" class="names-dialog-panel">
             <div class="card-head">
@@ -383,6 +432,8 @@
             </label>
             <p class="names-help">Un nom par ligne. Vous pouvez coller une liste complète.</p>
             <div class="action-row">
+              <button id="importStudentNames" type="button">Importer une liste</button>
+              <input id="importStudentNamesFile" type="file" accept=".txt,.csv,text/plain,text/csv" hidden>
               <button class="primary-button" id="saveNamesModal" type="button">Enregistrer</button>
             </div>
           </form>
@@ -485,7 +536,6 @@
             <p class="card-kicker">Se repérer</p>
             <h2 id="timelineTitle">Frises chronologiques</h2>
           </div>
-          <button class="icon-button" id="timelineResize" type="button" aria-label="Agrandir les frises" title="Agrandir">⛶</button>
         </div>
 
         <div class="timeline-filters" aria-label="Filtres de frise">
@@ -497,15 +547,8 @@
             <option value="4e">4e</option>
             <option value="3e">3e</option>
           </select>
-          <select id="periodFilter">
-            <option value="Tous">Toutes periodes</option>
-            <option value="Préhistoire">Préhistoire</option>
-            <option value="Antiquité">Antiquité</option>
-            <option value="Moyen Âge">Moyen Âge</option>
-            <option value="Temps modernes">Temps modernes</option>
-            <option value="Époque contemporaine">Époque contemporaine</option>
-          </select>
           <input id="timelineSearch" type="search" placeholder="Chercher un repere">
+          <button class="icon-button" id="timelineResize" type="button" aria-label="Agrandir les frises" title="Agrandir">⛶</button>
         </div>
 
         <div class="timeline-period-legend" aria-label="Grandes périodes historiques">
