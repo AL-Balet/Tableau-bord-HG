@@ -104,6 +104,8 @@ const translations = {
     thematicMapLabels: {
       "world-reliefs-thematic": "Monde | Reliefs",
       "world-oceans-thematic": "Monde | Océans",
+      "world-geographical-landmarks-thematic": "Monde | Grands repères",
+      "world-geographical-landmarks-2-thematic": "Monde | Grands repères terrestres 2",
       "world-political-equal-earth": "Monde | Politique (Equal Earth)",
       "world-political-equal-earth-asia": "Monde | Politique (Equal Earth Asia)",
       "world-political-equal-earth-americas": "Monde | Politique (Equal Earth America)",
@@ -114,6 +116,7 @@ const translations = {
     },
     blankMapLabels: {
       "world-blank-equal-earth-graticule": "Planisphere vierge Equal Earth",
+      "planisphere-carre-blank": "Planisphère carré",
       "world-blank-bertin-1953-graticule": "Planisphere vierge Bertin 1953",
       "world-blank-mollweide-interrupted-hemispheres-graticule": "Mollweide interrompue 2 hemispheres",
       "africa-blank-natural-earth-graticule": "Afrique vierge Natural Earth",
@@ -123,7 +126,8 @@ const translations = {
       "united-states-blank-hatier-2018": "États-Unis",
       "china-blank-hatier-2020": "Chine",
       "united-kingdom-blank-hatier-2024": "Royaume-Uni",
-      "mediterranean-blank-equal-earth-graticule": "Mer Méditerranée"
+      "mediterranean-blank-equal-earth-graticule": "Mer Méditerranée",
+      "middle-east-relief-blank-ab-pictoris": "Moyen-Orient"
     },
     osmTitle: "OpenStreetMap",
     osmProviderOsm: "OpenStreetMap",
@@ -317,6 +321,8 @@ const translations = {
     thematicMapLabels: {
       "world-reliefs-thematic": "World | Relief",
       "world-oceans-thematic": "World | Oceans",
+      "world-geographical-landmarks-thematic": "World | Major landmarks",
+      "world-geographical-landmarks-2-thematic": "World | Major land landmarks 2",
       "world-political-equal-earth": "World | Political (Equal Earth)",
       "world-political-equal-earth-asia": "World | Political (Equal Earth Asia)",
       "world-political-equal-earth-americas": "World | Political (Equal Earth America)",
@@ -327,6 +333,7 @@ const translations = {
     },
     blankMapLabels: {
       "world-blank-equal-earth-graticule": "Blank Equal Earth world map",
+      "planisphere-carre-blank": "Square world map",
       "world-blank-bertin-1953-graticule": "Blank Bertin 1953 world map",
       "world-blank-mollweide-interrupted-hemispheres-graticule": "Interrupted Mollweide, 2 hemispheres",
       "africa-blank-natural-earth-graticule": "Blank Natural Earth map of Africa",
@@ -336,7 +343,8 @@ const translations = {
       "united-states-blank-hatier-2018": "United States",
       "china-blank-hatier-2020": "China",
       "united-kingdom-blank-hatier-2024": "United Kingdom",
-      "mediterranean-blank-equal-earth-graticule": "Mediterranean Sea"
+      "mediterranean-blank-equal-earth-graticule": "Mediterranean Sea",
+      "middle-east-relief-blank-ab-pictoris": "Middle East"
     },
     osmTitle: "OpenStreetMap",
     osmProviderOsm: "OpenStreetMap",
@@ -453,11 +461,29 @@ const mapDefinitions = {
     caption: "",
     source: "Source : HGSempai"
   },
+  "world-geographical-landmarks-thematic": {
+    src: "assets/maps/world-geographical-landmarks-thematic.png",
+    alt: "Planisphere thematique montrant les grands reperes geographiques mondiaux",
+    caption: "",
+    source: "Source : Jean-Benoît Bouron, Géoconfluences / ministère de l'Éducation nationale, DGESCO. Projection Equal Earth - Réalisé avec Graticule."
+  },
+  "world-geographical-landmarks-2-thematic": {
+    src: "assets/maps/world-geographical-landmarks-2-thematic.jpg",
+    alt: "Planisphere thematique montrant les grands reperes terrestres mondiaux",
+    caption: "",
+    source: "Source : Jean-Benoît Bouron, Géoconfluences / ministère de l'Éducation nationale, DGESCO. Projection Equal Earth - Réalisé avec Graticule."
+  },
   "world-blank-equal-earth-graticule": {
     src: "assets/maps/equal-earth-blank-graticule.png",
     alt: "Planisphere vierge Equal Earth realise avec Graticule",
     caption: "",
     source: "Source : Equal Earth - Réalisé avec Graticule"
+  },
+  "planisphere-carre-blank": {
+    src: "assets/maps/planisphere-carre-blank.png",
+    alt: "Planisphere carre vierge avec pays et graticule",
+    caption: "",
+    source: `Source : <a href="https://planispherecarre.org" target="_blank" rel="noopener">planispherecarre.org</a>`
   },
   "world-blank-bertin-1953-graticule": {
     src: "assets/maps/world-blank-bertin-1953-graticule.png",
@@ -470,6 +496,12 @@ const mapDefinitions = {
     alt: "Planisphere vierge en projection Mollweide interrompue en deux hemispheres realise avec Graticule",
     caption: "",
     source: "Source : Mollweide interrompue 2 hémisphères - Réalisé avec Graticule"
+  },
+  "middle-east-relief-blank-ab-pictoris": {
+    src: "assets/maps/middle-east-relief-blank-ab-pictoris.png",
+    alt: "Fond de carte du Moyen-Orient montrant le relief, les fleuves et les limites",
+    caption: "",
+    source: `Source : <a href="https://abpictoris.com" target="_blank" rel="noopener">AB Pictoris</a>, 2025. Données ETOPO2022 et Natural Earth.`
   },
   "world-political-equal-earth": {
     src: {
@@ -565,7 +597,7 @@ const mapDefinitions = {
     source: "Source : Cartothèque Hatier, 2024, Jean-Pierre Crivellari."
   },
   "mediterranean-blank-equal-earth-graticule": {
-    src: "assets/maps/mediterranean-blank-equal-earth-graticule.png",
+    src: "assets/maps/mediterranean-blank-equal-earth-graticule-v2.png",
     alt: "Fond de carte vierge de la mer Méditerranée en projection Equal Earth",
     caption: "",
     source: "Source : Equal Earth - Réalisé avec Graticule"

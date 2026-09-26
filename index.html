@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260912-222">
-  <script src="app.js?v=20260911-218" defer></script>
+  <script src="app.js?v=20260926-224" defer></script>
   </head>
   <body>
     <header class="app-header">
@@ -232,6 +232,8 @@
               <optgroup label="Monde">
                 <option value="world-reliefs-thematic" selected>Monde | Reliefs</option>
                 <option value="world-oceans-thematic">Monde | Océans</option>
+                <option value="world-geographical-landmarks-thematic">Monde | Grands repères</option>
+                <option value="world-geographical-landmarks-2-thematic">Monde | Grands repères terrestres 2</option>
                 <option value="world-political-equal-earth">Monde | Politique (Equal Earth)</option>
                 <option value="world-political-equal-earth-asia">Monde | Politique (Equal Earth Asia)</option>
                 <option value="world-political-equal-earth-americas">Monde | Politique (Equal Earth America)</option>
@@ -249,19 +251,21 @@
             <select id="baseMapSelect" aria-label="Choisir un fond de carte vierge">
               <option value="">Choisir...</option>
               <optgroup label="Monde">
-                <option value="world-blank-equal-earth-graticule">Planisphere vierge Equal Earth</option>
-                <option value="world-blank-bertin-1953-graticule">Planisphere vierge Bertin 1953</option>
                 <option value="world-blank-mollweide-interrupted-hemispheres-graticule">Mollweide interrompue 2 hemispheres</option>
+                <option value="planisphere-carre-blank">Planisphère carré</option>
+                <option value="world-blank-bertin-1953-graticule">Planisphere vierge Bertin 1953</option>
+                <option value="world-blank-equal-earth-graticule">Planisphere vierge Equal Earth</option>
               </optgroup>
               <optgroup label="Regions">
                 <option value="africa-blank-natural-earth-graticule">Afrique vierge Natural Earth</option>
                 <option value="asia-blank-natural-earth-graticule">Asie vierge Natural Earth</option>
+                <option value="china-blank-hatier-2020">Chine</option>
+                <option value="united-states-blank-hatier-2018">États-Unis</option>
                 <option value="europe-blank-equal-earth-graticule">Europe vierge Equal Earth</option>
                 <option value="france-blank-mercator-graticule">France hexagonale Equal Earth</option>
-                <option value="united-states-blank-hatier-2018">États-Unis</option>
-                <option value="china-blank-hatier-2020">Chine</option>
-                <option value="united-kingdom-blank-hatier-2024">Royaume-Uni</option>
                 <option value="mediterranean-blank-equal-earth-graticule">Mer Méditerranée</option>
+                <option value="middle-east-relief-blank-ab-pictoris">Moyen-Orient</option>
+                <option value="united-kingdom-blank-hatier-2024">Royaume-Uni</option>
               </optgroup>
             </select>
           </label>
