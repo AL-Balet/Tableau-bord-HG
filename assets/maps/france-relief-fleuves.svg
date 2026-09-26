@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" role="img" aria-labelledby="title desc">
+  <title id="title">France relief et fleuves simplifiee</title>
+  <desc id="desc">Carte schematique de la France avec reliefs et fleuves principaux.</desc>
+  <rect width="900" height="720" fill="#dfeff2"/>
+  <path d="M433 68 563 112l83 92 85 22 15 112-56 87 32 107-91 78-118-8-89 61-102-45-123 13-64-93 42-104-54-88 48-100-13-89 132-24Z" fill="#f5f1dc" stroke="#43545a" stroke-width="5"/>
+  <path d="M198 535c92-58 184-67 278-35 66 23 112 55 178 51" fill="none" stroke="#78a957" stroke-width="30" opacity=".42"/>
+  <path d="M580 117c58 70 86 147 80 232" fill="none" stroke="#9b8e64" stroke-width="28" opacity=".36"/>
+  <path d="M344 119c-23 84-14 148 26 190 39 41 47 86 22 135" fill="none" stroke="#4e9ed3" stroke-width="9" stroke-linecap="round"/>
+  <path d="M520 112c-38 67-35 135 11 202 42 61 47 120 16 178" fill="none" stroke="#4e9ed3" stroke-width="9" stroke-linecap="round"/>
+  <path d="M650 220c-54 21-85 67-94 138-8 67-36 117-84 151" fill="none" stroke="#4e9ed3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M230 247c63 33 105 80 126 142 21 61 54 104 101 128" fill="none" stroke="#4e9ed3" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#39464c" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800">
+    <text x="262" y="170">Seine</text>
+    <text x="547" y="178">Rhin</text>
+    <text x="595" y="402">Rhône</text>
+    <text x="278" y="408">Loire</text>
+    <text x="409" y="560">Garonne</text>
+    <text x="596" y="566">Alpes</text>
+    <text x="220" y="575">Pyrénées</text>
+    <text x="561" y="276">Vosges</text>
+  </g>
+</svg>
