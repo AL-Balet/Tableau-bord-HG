@@ -505,8 +505,8 @@ const mapDefinitions = {
   },
   "world-political-equal-earth": {
     src: {
-      fr: "assets/maps/equal-earth-world-political-fr.jpg",
-      en: "assets/maps/equal-earth-world-political-en.jpg"
+      fr: "assets/maps/equal-earth-world-political-fr-web.jpg",
+      en: "assets/maps/equal-earth-world-political-en-web.jpg"
     },
     alt: {
       fr: "Planisphere politique Equal Earth en francais centre sur Greenwich",
@@ -519,13 +519,13 @@ const mapDefinitions = {
     source: `Source : <a href="https://equal-earth.com" target="_blank" rel="noopener">equal-earth.com</a> · Auteur : Tom Patterson`
   },
   "world-political-equal-earth-asia": {
-    src: "assets/maps/equal-earth-asia-150e-en.jpg",
+    src: "assets/maps/equal-earth-asia-150e-en-web.jpg",
     alt: "Equal Earth political world map centered on Asia, 150E, English",
     caption: "",
     source: `Source : <a href="https://equal-earth.com" target="_blank" rel="noopener">equal-earth.com</a> · Auteur : Tom Patterson`
   },
   "world-political-equal-earth-americas": {
-    src: "assets/maps/equal-earth-americas-90w-en.jpg",
+    src: "assets/maps/equal-earth-americas-90w-en-web.jpg",
     alt: "Equal Earth political world map centered on the Americas, 90W, English",
     caption: "",
     source: `Source : <a href="https://equal-earth.com" target="_blank" rel="noopener">equal-earth.com</a> · Auteur : Tom Patterson`
@@ -543,13 +543,13 @@ const mapDefinitions = {
     source: "Source : d-maps.com"
   },
   "france-regions-departments-thematic": {
-    src: "assets/maps/france-regions-departements-thematic.webp",
+    src: "assets/maps/france-regions-departements-thematic-v2.png",
     alt: "Carte thematique des regions et departements francais",
     caption: "",
-    source: "Source : Lelivrescolaire.fr, Licence CC BY-SA-NC."
+    source: "Source : INSEE, 2015."
   },
   "france-relief-thematic": {
-    src: "assets/maps/france-relief-thematic.webp",
+    src: "assets/maps/france-relief-thematic-v2.png",
     alt: "Carte thematique du relief de la France",
     caption: "",
     source: "Source : Lelivrescolaire.fr, Licence CC BY-SA-NC."
